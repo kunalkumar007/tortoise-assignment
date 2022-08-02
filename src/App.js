@@ -3,14 +3,14 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-const client_id = "RCq8sCwrtRITbyNTMjUd4aIvalfdyaMOiPH4k6SL5bA";
+const client_id = "YHmWPy299c_uT8U7J0ibyUpr_0V779I_yobB1oa-WtI";
 // const api = createApi({
 //   accessKey: client_id,
 // });
 
 const App = () => {
   const [data, setPhotosResponse] = useState([]);
-  const [query, setQuery] = useState("code");
+  const [query, setQuery] = useState("men");
   const [page, setPage] = useState(1);
   // eslint-disable-next-line no-unused-vars
   const [hasMore, setHasMore] = useState(true);
@@ -62,7 +62,7 @@ const App = () => {
         dataLength={data.length}
         next={fetchImages}
         hasMore={hasMore}
-        loader={<p>Load more...</p>}
+        loader={<p>Scroll for more...</p>}
         endMessage={
           <p style={{ textAlign: "center" }}>
             <b>Yay! You have seen it all</b>
