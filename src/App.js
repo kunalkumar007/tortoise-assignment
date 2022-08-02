@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from "react";
-// import { createApi } from "unsplash-js";
 import "./App.css";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 const client_id = "YHmWPy299c_uT8U7J0ibyUpr_0V779I_yobB1oa-WtI";
-// const api = createApi({
-//   accessKey: client_id,
-// });
 
 const App = () => {
   const [data, setPhotosResponse] = useState([]);
@@ -15,18 +11,6 @@ const App = () => {
   // eslint-disable-next-line no-unused-vars
   const [hasMore, setHasMore] = useState(true);
   const fetchUrl = `https://api.unsplash.com/search/photos?client_id=${client_id}&query=${query}&page=${page}`;
-
-  // useEffect(() => {
-  //   api.search
-  //     .getPhotos({ query: "cat", page: 1, perPage: 100 })
-  //     .then((result) => {
-  //       setPhotosResponse(result);
-  //       console.log(result);
-  //     })
-  //     .catch(() => {
-  //       console.log("something went wrong!");
-  //     });
-  // }, []);
 
   useEffect(() => {
     fetchImages();
@@ -41,9 +25,6 @@ const App = () => {
     setPage(page + 1);
   };
 
-  // if (data === null) {
-  //   return <div>loading . . .</div>;
-  // }
   const searchImages = (e) => {
     if (e.keyCode === 13) {
       setQuery(e.target.value);
@@ -81,23 +62,6 @@ const App = () => {
           ))}
         </div>
       </InfiniteScroll>
-      {/* <div className="row">
-        <div className="column">
-          {data.response.results.map((photo) => (
-            <img className="img" src={photo.urls.regular} alt="" />
-          ))}
-        </div>
-        <div className="column">
-          {data.response.results.map((photo) => (
-            <img className="img" src={photo.urls.regular} alt="" />
-          ))}
-        </div>
-        <div className="column">
-          {data.response.results.map((photo) => (
-            <img className="img" src={photo.urls.regular} alt="" />
-          ))}
-        </div>
-      </div> */}
     </div>
   );
 };
