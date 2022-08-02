@@ -1,17 +1,18 @@
-import React, { Fragment, useEffect, useState } from "react";
-import { createApi } from "unsplash-js";
+import React, { useEffect, useState } from "react";
+// import { createApi } from "unsplash-js";
 import "./App.css";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 const client_id = "RCq8sCwrtRITbyNTMjUd4aIvalfdyaMOiPH4k6SL5bA";
-const api = createApi({
-  accessKey: client_id,
-});
+// const api = createApi({
+//   accessKey: client_id,
+// });
 
 const App = () => {
   const [data, setPhotosResponse] = useState([]);
   const [query, setQuery] = useState("code");
   const [page, setPage] = useState(1);
+  // eslint-disable-next-line no-unused-vars
   const [hasMore, setHasMore] = useState(true);
   const fetchUrl = `https://api.unsplash.com/search/photos?client_id=${client_id}&query=${query}&page=${page}`;
 
@@ -29,6 +30,7 @@ const App = () => {
 
   useEffect(() => {
     fetchImages();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query]);
 
   const fetchImages = async () => {
